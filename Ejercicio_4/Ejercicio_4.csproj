@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ejercicio_3_LIB\Ejercicio_3_LIB.csproj" />
+    <ProjectReference Include="..\Ejercicio_4_LIB\Ejercicio_4_LIB.csproj" />
     <ProjectReference Include="..\_LIBGeoClases\_LIBGeoClases.csproj" />
   </ItemGroup>
 
