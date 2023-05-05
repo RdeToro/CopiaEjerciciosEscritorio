@@ -48,9 +48,9 @@
             // lblComunidad
             // 
             lblComunidad.AutoSize = true;
-            lblComunidad.Location = new Point(17, 15);
+            lblComunidad.Location = new Point(15, 11);
             lblComunidad.Name = "lblComunidad";
-            lblComunidad.Size = new Size(89, 20);
+            lblComunidad.Size = new Size(73, 15);
             lblComunidad.TabIndex = 0;
             lblComunidad.Text = "Comunidad:";
             // 
@@ -59,18 +59,19 @@
             cboComunidad.BackColor = SystemColors.Window;
             cboComunidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cboComunidad.FormattingEnabled = true;
-            cboComunidad.Location = new Point(21, 43);
+            cboComunidad.Location = new Point(18, 32);
+            cboComunidad.Margin = new Padding(3, 2, 3, 2);
             cboComunidad.Name = "cboComunidad";
-            cboComunidad.Size = new Size(246, 28);
+            cboComunidad.Size = new Size(216, 23);
             cboComunidad.TabIndex = 1;
             cboComunidad.SelectedIndexChanged += cboComunidad_SelectedIndexChanged;
             // 
             // lblProvincia
             // 
             lblProvincia.AutoSize = true;
-            lblProvincia.Location = new Point(306, 15);
+            lblProvincia.Location = new Point(268, 11);
             lblProvincia.Name = "lblProvincia";
-            lblProvincia.Size = new Size(72, 20);
+            lblProvincia.Size = new Size(59, 15);
             lblProvincia.TabIndex = 2;
             lblProvincia.Text = "Provincia:";
             // 
@@ -78,18 +79,19 @@
             // 
             cboProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
             cboProvincia.FormattingEnabled = true;
-            cboProvincia.Location = new Point(306, 43);
+            cboProvincia.Location = new Point(268, 32);
+            cboProvincia.Margin = new Padding(3, 2, 3, 2);
             cboProvincia.Name = "cboProvincia";
-            cboProvincia.Size = new Size(270, 28);
+            cboProvincia.Size = new Size(237, 23);
             cboProvincia.TabIndex = 3;
             cboProvincia.SelectedIndexChanged += cboProvincia_SelectedIndexChanged;
             // 
             // lblMunicipio
             // 
             lblMunicipio.AutoSize = true;
-            lblMunicipio.Location = new Point(21, 86);
+            lblMunicipio.Location = new Point(18, 64);
             lblMunicipio.Name = "lblMunicipio";
-            lblMunicipio.Size = new Size(78, 20);
+            lblMunicipio.Size = new Size(64, 15);
             lblMunicipio.TabIndex = 4;
             lblMunicipio.Text = "Municipio:";
             // 
@@ -97,18 +99,19 @@
             // 
             cboMunicipio.DropDownStyle = ComboBoxStyle.DropDownList;
             cboMunicipio.FormattingEnabled = true;
-            cboMunicipio.Location = new Point(21, 118);
+            cboMunicipio.Location = new Point(18, 88);
+            cboMunicipio.Margin = new Padding(3, 2, 3, 2);
             cboMunicipio.Name = "cboMunicipio";
-            cboMunicipio.Size = new Size(357, 28);
+            cboMunicipio.Size = new Size(313, 23);
             cboMunicipio.TabIndex = 5;
             cboMunicipio.SelectedIndexChanged += cboMunicipio_SelectedIndexChanged;
             // 
             // lblPoblacion
             // 
             lblPoblacion.AutoSize = true;
-            lblPoblacion.Location = new Point(410, 86);
+            lblPoblacion.Location = new Point(359, 64);
             lblPoblacion.Name = "lblPoblacion";
-            lblPoblacion.Size = new Size(77, 20);
+            lblPoblacion.Size = new Size(63, 15);
             lblPoblacion.TabIndex = 6;
             lblPoblacion.Text = "Población:";
             // 
@@ -116,57 +119,61 @@
             // 
             cboPoblacion.DropDownStyle = ComboBoxStyle.DropDownList;
             cboPoblacion.FormattingEnabled = true;
-            cboPoblacion.Location = new Point(410, 118);
+            cboPoblacion.Location = new Point(359, 88);
+            cboPoblacion.Margin = new Padding(3, 2, 3, 2);
             cboPoblacion.Name = "cboPoblacion";
-            cboPoblacion.Size = new Size(345, 28);
+            cboPoblacion.Size = new Size(302, 23);
             cboPoblacion.TabIndex = 7;
             // 
             // lblCentro
             // 
             lblCentro.AutoSize = true;
-            lblCentro.Location = new Point(17, 168);
+            lblCentro.Location = new Point(15, 126);
             lblCentro.Name = "lblCentro";
-            lblCentro.Size = new Size(135, 20);
+            lblCentro.Size = new Size(107, 15);
             lblCentro.TabIndex = 8;
             lblCentro.Text = "Nombre del centro";
             // 
             // txtCentro
             // 
-            txtCentro.Location = new Point(17, 200);
+            txtCentro.Location = new Point(18, 150);
+            txtCentro.Margin = new Padding(3, 2, 3, 2);
             txtCentro.Name = "txtCentro";
-            txtCentro.Size = new Size(361, 27);
+            txtCentro.Size = new Size(316, 23);
             txtCentro.TabIndex = 9;
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(406, 168);
+            lblDireccion.Location = new Point(355, 126);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(75, 20);
+            lblDireccion.Size = new Size(60, 15);
             lblDireccion.TabIndex = 10;
             lblDireccion.Text = "Dirección:";
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(406, 200);
+            txtDireccion.Location = new Point(359, 150);
+            txtDireccion.Margin = new Padding(3, 2, 3, 2);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(349, 27);
+            txtDireccion.Size = new Size(306, 23);
             txtDireccion.TabIndex = 11;
             // 
             // lblCP
             // 
             lblCP.AutoSize = true;
-            lblCP.Location = new Point(17, 248);
+            lblCP.Location = new Point(15, 186);
             lblCP.Name = "lblCP";
-            lblCP.Size = new Size(101, 20);
+            lblCP.Size = new Size(81, 15);
             lblCP.TabIndex = 12;
             lblCP.Text = "Código Postal";
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(610, 268);
+            btnAceptar.Location = new Point(534, 201);
+            btnAceptar.Margin = new Padding(3, 2, 3, 2);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(145, 40);
+            btnAceptar.Size = new Size(127, 30);
             btnAceptar.TabIndex = 14;
             btnAceptar.Text = "ACEPTAR";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -174,17 +181,18 @@
             // 
             // txtCodigoPostal
             // 
-            txtCodigoPostal.Location = new Point(21, 281);
+            txtCodigoPostal.Location = new Point(18, 211);
+            txtCodigoPostal.Margin = new Padding(3, 2, 3, 2);
             txtCodigoPostal.Mask = "00000";
             txtCodigoPostal.Name = "txtCodigoPostal";
-            txtCodigoPostal.Size = new Size(57, 27);
+            txtCodigoPostal.Size = new Size(50, 23);
             txtCodigoPostal.TabIndex = 15;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(773, 324);
+            ClientSize = new Size(676, 243);
             Controls.Add(txtCodigoPostal);
             Controls.Add(btnAceptar);
             Controls.Add(lblCP);
@@ -200,6 +208,7 @@
             Controls.Add(lblProvincia);
             Controls.Add(cboComunidad);
             Controls.Add(lblComunidad);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
