@@ -1,4 +1,4 @@
-﻿namespace Ejercicio_3
+﻿namespace Ejercicio_4
 {
     partial class Form1
     {

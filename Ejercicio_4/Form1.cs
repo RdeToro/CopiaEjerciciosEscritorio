@@ -1,7 +1,7 @@
 using _LIBGeoClases.NEGOCIO;
-using Ejercicio_3_LIB.NEGOCIO;
+using Ejercicio_4_LIB.NEGOCIO;
 
-namespace Ejercicio_3
+namespace Ejercicio_4
 {
     /*
     Crear un formulario para dar de alta Centros de trabajo.

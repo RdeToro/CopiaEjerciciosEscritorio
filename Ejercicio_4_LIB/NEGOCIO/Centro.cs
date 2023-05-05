@@ -1,4 +1,4 @@
-﻿namespace Ejercicio_3_LIB.NEGOCIO
+﻿namespace Ejercicio_4_LIB.NEGOCIO
 {
     public class Centro
     {
