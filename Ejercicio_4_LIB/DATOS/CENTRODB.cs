@@ -53,7 +53,7 @@ namespace Ejercicio_4_LIB.DATOS
                 DataTable tabla = new DataTable();
                 tabla.Load(reader);
 
-                 resultado = (long)tabla.Rows[0][0];              
+                 resultado = Convert.ToInt64(tabla.Rows[0][0]);              
 
                 
 
@@ -64,17 +64,32 @@ namespace Ejercicio_4_LIB.DATOS
             return resultado;
 
         }
-
-        public DataTable GetCentros()
+        /*
+        public List<Centro> GetCentros()
         {
+            DataTable resultado = new DataTable();
             using(OleDbConnection conexion = new OleDbConnection(_CadenaDeConexion))
             {
                 conexion.Open();
 
-                string SQL = "SELECT ID,"
+                string SQL = "SELECT ID, PoblacionID, Direccion, CP FROM Tabla_Centro";
 
-                conexion.Close();  
+                OleDbCommand comando = conexion.CreateCommand();
+                comando.CommandText = SQL;
+
+                OleDbDataReader reader = comando.ExecuteReader();
+
+                DataTable tabla = new DataTable();
+
+                tabla.Load(reader);                            
+                
+               
+                
+
             }
+            return resultado;
+
         }
+        */
     }
 }

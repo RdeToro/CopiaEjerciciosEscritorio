@@ -4,6 +4,7 @@ using Ejercicio_4_LIB.NEGOCIO;
 namespace Ejercicio_4
 {
     /*
+     * Alta/Baja/Modificacion/consulta
     Crear un formulario para dar de alta Centros de trabajo.
     El formulario tendrá los siguientes controles:
     Comunidad: Lista de Comunidades Autónomas extraidos de la BBDD
@@ -137,6 +138,10 @@ namespace Ejercicio_4
                     CodigoPostal = int.Parse(txtCodigoPostal.Text),
                     PoblacionId = poblacion.Id
                 };
+
+                centro.GuardarCentroEnBBDD(centro);
+
+                MessageBox.Show(centro.Id.ToString());
 
                 MessageBox.Show("Centro creado correctamente", "Centro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

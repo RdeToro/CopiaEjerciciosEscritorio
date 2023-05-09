@@ -14,7 +14,7 @@ namespace _LIBGeoClases.DATOS
 
         public AccesoDatos()
         {
-            cadenaConexion = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=AuditoriasCentros;Data Source=fernando-laptop\\sqlexpress";
+            cadenaConexion = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=AuditoriasCentros;Data Source=localhost\\SQLEXPRESS";
         }
 
         public List<Comunidad> GetComunidades()
