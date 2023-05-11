@@ -51,6 +51,7 @@ namespace Ejercicio_5
                 FileInfo miFichero = new FileInfo(_ficheros[i]);
                 _sb.AppendLine(miFichero.Name);
                 backgroundWorker1.ReportProgress(i + 1);
+                Thread.Sleep(100);
             }
         }
 
