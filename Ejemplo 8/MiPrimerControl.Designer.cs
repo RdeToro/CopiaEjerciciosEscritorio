@@ -59,6 +59,7 @@
             txtFechaInicio.Name = "txtFechaInicio";
             txtFechaInicio.Size = new Size(151, 23);
             txtFechaInicio.TabIndex = 2;
+            txtFechaInicio.TextChanged += txtFechaInicio_TextChanged;
             // 
             // txtFechaFin
             // 
