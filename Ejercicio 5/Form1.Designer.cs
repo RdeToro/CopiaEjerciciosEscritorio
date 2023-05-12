@@ -38,7 +38,6 @@
             folderBrowserDialog1 = new FolderBrowserDialog();
             btnCargarFicheros = new Button();
             txtFicheros = new TextBox();
-            vScrollBar1 = new VScrollBar();
             lblFicheros = new Label();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -69,7 +68,7 @@
             // lblProgreso
             // 
             lblProgreso.Name = "lblProgreso";
-            lblProgreso.Size = new Size(0, 17);
+            lblProgreso.Size = new Size(0, 0);
             // 
             // lblCarpeta
             // 
@@ -116,15 +115,9 @@
             txtFicheros.Location = new Point(12, 81);
             txtFicheros.Multiline = true;
             txtFicheros.Name = "txtFicheros";
-            txtFicheros.Size = new Size(748, 294);
+            txtFicheros.ScrollBars = ScrollBars.Vertical;
+            txtFicheros.Size = new Size(769, 294);
             txtFicheros.TabIndex = 6;
-            // 
-            // vScrollBar1
-            // 
-            vScrollBar1.Location = new Point(767, 70);
-            vScrollBar1.Name = "vScrollBar1";
-            vScrollBar1.Size = new Size(17, 305);
-            vScrollBar1.TabIndex = 7;
             // 
             // lblFicheros
             // 
@@ -141,7 +134,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(793, 400);
             Controls.Add(lblFicheros);
-            Controls.Add(vScrollBar1);
             Controls.Add(txtFicheros);
             Controls.Add(btnCargarFicheros);
             Controls.Add(btnCarpeta);
@@ -168,7 +160,6 @@
         private FolderBrowserDialog folderBrowserDialog1;
         private Button btnCargarFicheros;
         private TextBox txtFicheros;
-        private VScrollBar vScrollBar1;
         private Label lblFicheros;
     }
 }
