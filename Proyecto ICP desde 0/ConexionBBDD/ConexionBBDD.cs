@@ -11,6 +11,10 @@ namespace ConexionBBDD
 
         public SqlParameter Parametros { get; set; }
 
+        public ConexionBBDD(string CadenaConexion)
+        {
+            _CadenaConexion = CadenaConexion;
+        }
 
         public bool Abrir ()
         {
@@ -59,6 +63,8 @@ namespace ConexionBBDD
         {
             SqlCommand comando = Conexion.CreateCommand ();
             comando.CommandText = SQL;
+
+            int resultado = 0;
             
             if(parametros != null && Conexion.State == ConnectionState.Open)
             {
@@ -94,20 +100,20 @@ namespace ConexionBBDD
                     SqlDataReader reader = comando.ExecuteReader();
 
                     DataTable dataTable = new DataTable();
-                    int resultado = 0;
+                    
                     if(reader != null)
                     {
                         dataTable.Load(reader);
                         resultado = Convert.ToInt32(dataTable.Rows[0][0]);
                     }
                     
-                    return resultado;
+                   
                 }
 
-                
+                 
             }
-
+            return resultado;
         }
 
     }
-}m
+}

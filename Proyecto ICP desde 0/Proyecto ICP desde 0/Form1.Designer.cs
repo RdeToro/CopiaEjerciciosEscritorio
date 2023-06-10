@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            gbReferencia = new GroupBox();
+            SuspendLayout();
+            // 
+            // gbReferencia
+            // 
+            gbReferencia.Location = new Point(50, 27);
+            gbReferencia.Name = "gbReferencia";
+            gbReferencia.Size = new Size(257, 141);
+            gbReferencia.TabIndex = 0;
+            gbReferencia.TabStop = false;
+            gbReferencia.Text = "Referencias";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(982, 522);
+            Controls.Add(gbReferencia);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private GroupBox gbReferencia;
     }
 }
