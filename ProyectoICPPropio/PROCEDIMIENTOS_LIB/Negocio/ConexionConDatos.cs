@@ -18,7 +18,8 @@ namespace PROCEDIMIENTOS_LIB.Negocio
 
         public ConexionConDatos(AvisoRecepcionesCAB miCab)
         {
-            MiCab = miCab;          
+            MiCab = miCab;              
+            
         }
 
         public ConexionConDatos(List<AvisoRecepcionesLIN> miLIN)
@@ -26,12 +27,19 @@ namespace PROCEDIMIENTOS_LIB.Negocio
             misLineas = miLIN;         
         }
 
-        public ConexionConDatos()
+        public ConexionConDatos(AvisoRecepcionesCab_Lin_Datos capa)
         {
             CapaDatos = new AvisoRecepcionesCab_Lin_Datos(_CadenaConexion, MiCab, misLineas);
+
+            
+            misCabeceras = capa.LeerCABBBDD();
+
+            
             
             
         }
+
+
 
 
     }

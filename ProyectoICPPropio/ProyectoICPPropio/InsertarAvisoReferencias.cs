@@ -21,6 +21,9 @@ namespace ProyectoICPPropio
         {
             InitializeComponent();
 
+            AvisoRecepcionesLIN = new AvisoRecepcionesLIN();
+            AvisoRecepcionesCab = new AvisoRecepcionesCAB();
+
         }
 
         private void btnLinea_Click(object sender, EventArgs e)

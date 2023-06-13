@@ -63,6 +63,7 @@
             btnVerAvisos.TabIndex = 1;
             btnVerAvisos.Text = "Consultar avisos";
             btnVerAvisos.UseVisualStyleBackColor = true;
+            btnVerAvisos.Click += btnVerAvisos_Click;
             // 
             // Form1
             // 
