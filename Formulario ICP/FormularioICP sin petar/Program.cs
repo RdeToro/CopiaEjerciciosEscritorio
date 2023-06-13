@@ -11,7 +11,7 @@ namespace FormularioICP_sin_petar
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new InsertarProducto());
+            Application.Run(new Inicio());
         }
     }
 }

@@ -84,18 +84,7 @@ namespace ProyectoICP_LIB.BBDD
             List<Producto_NEG> resultado = null;
             DataTable datos = null;
 
-            string SQL = "SELECT ID_REFERENCIA " +
-                        ",F_INSERT " +  
-                        ",COD_REFERENCIA " +
-                        ",DES_REFERENCIA" +    
-                        ",REF_CLIENTE " +    
-                        ",CODIGO_EAN  "  + 
-                        ",ID_GRUPO  "  +
-                        ",CNT_ESTANDAR"  +
-                        ",PESO" +
-                        ",OPERATIVA" +
-                        ",LONGITUD_NSERIE" +
-                        "FROM REFERENCIAS";
+            string SQL = "SELECT * FROM dbo.REFERENCIAS";
 
             bool bResultado = _conexion.Abrir();
 
@@ -110,13 +99,13 @@ namespace ProyectoICP_LIB.BBDD
                     Producto_NEG producto = new Producto_NEG
                     {
                         Id = Convert.ToInt32(row["ID_REFERENCIA"]),
-                        FechaCreacion = Convert.ToDateTime(row["F_IN"]),
+                        FechaCreacion = (DateTime)(row["F_INSERT"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["F_INSERT"])),
                         CodReferencia = row["COD_REFERENCIA"].ToString(),
                         Descripcion = row["DES_REFERENCIA"].ToString(),
-                        RefCliente = row["REF_CLIENTE"].ToString(),
-                        CodEan = row["CODIGO_EAN"].ToString(),
-                        GrupoID = row["ID_GRUPO"].ToString(),
-                        CantidadSTD = Convert.ToInt32(row["CNT_ESTANDAR"]),
+                        RefCliente = row["REF_CLIENTE"] == DBNull.Value ? null : row["REF_CLIENTE"].ToString(),
+                        CodEan = row["CODIGO_EAN"] == DBNull.Value ? null : row["CODIGO_EAN"].ToString(),
+                        GrupoID = row["ID_GRUPO"] == DBNull.Value ? null : row["ID_GRUPO"].ToString(),
+                        CantidadSTD = row["CNT_ESTANDAR"] == DBNull.Value ? 0 : Convert.ToInt32(row["CNT_ESTANDAR"]),
                         Peso = Convert.ToInt32(row["PESO"]),
                         Operativa = Convert.ToBoolean(row["OPERATIVA"]),
                         LongNUmSerie = Convert.ToInt32(row["LONGITUD_NSERIE"])
@@ -132,18 +121,8 @@ namespace ProyectoICP_LIB.BBDD
 
         public int Insertar(Producto_NEG producto)
         {
-            string SQL = "PA_INSERTAR_REFERENCIA" +
-                         "@CodReferencia, " +
-                         "@DesReferencia, " +
-                         "@RefCliente, " +
-                         "@CodEAN, " +
-                         "@GrupoId, " +
-                         "@Cantidad, " +
-                         "@Peso," +
-                         "@Operativa," +
-                         "@LonNumSerie," +
-                         "@RETCODE OUTPUT, " +
-                         "@MENSAJE OUTPUT";
+            string SQL = "dbo.PA_INSERTAR_REFERENCIA";
+                         
             bool bResultado = _conexion.Abrir();
             int iResultado = 0;
             if (bResultado)
@@ -152,7 +131,7 @@ namespace ProyectoICP_LIB.BBDD
                 List<ParametroBBDD> parametros = new List<ParametroBBDD>();
                 ParametroBBDD parametro = new ParametroBBDD               
                 {
-                    Nombre = "@CodReferencia",
+                    Nombre = "@COD_REFERENCIA",
                     Tipo = DbType.String,
                     Valor = producto.CodReferencia,
                     Direccion = TipoDireccion.Entrada
@@ -162,7 +141,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@DesReferencia",
+                    Nombre = "@DES_REFERENCIA",
                     Tipo = DbType.String,
                     Valor = producto.Descripcion,
                     Direccion = TipoDireccion.Entrada
@@ -172,7 +151,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@RefCliente",
+                    Nombre = "@REF_CLIENTE",
                     Tipo = DbType.String,
                     Valor = producto.RefCliente,
                     Direccion = TipoDireccion.Entrada
@@ -182,7 +161,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@CodEAN",
+                    Nombre = "@CODIGO_EAN",
                     Tipo = DbType.String,
                     Valor = producto.CodEan,
                     Direccion = TipoDireccion.Entrada
@@ -192,7 +171,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@GrupoId",
+                    Nombre = "@ID_GRUPO",
                     Tipo = DbType.String,
                     Valor = producto.GrupoID,
                     Direccion = TipoDireccion.Entrada
@@ -202,7 +181,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@Cantidad",
+                    Nombre = "@CNT_ESTANDAR",
                     Tipo = DbType.Int32,
                     Valor = producto.CantidadSTD,
                     Direccion = TipoDireccion.Entrada
@@ -212,7 +191,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@Peso",
+                    Nombre = "@PESO",
                     Tipo = DbType.Int32,
                     Valor = producto.Peso,
                     Direccion = TipoDireccion.Entrada
@@ -222,7 +201,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@Operativa",
+                    Nombre = "@OPERATIVA",
                     Tipo = DbType.Boolean,
                     Valor = producto.Operativa,
                     Direccion = TipoDireccion.Entrada
@@ -232,7 +211,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@LongNumSerie",
+                    Nombre = "@LONGITUD_NSERIE",
                     Tipo = DbType.Int32,
                     Valor = producto.LongNUmSerie,
                     Direccion = TipoDireccion.Entrada
@@ -251,12 +230,12 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@Mensaje",
+                    Nombre = "@MENSAJE",
                     Tipo = DbType.String,
                     Direccion = TipoDireccion.EntradaSalida,
-                    
-
+                    Tamanho = 1000
                 };
+                
                 
                 parametros.Add(parametro);
 

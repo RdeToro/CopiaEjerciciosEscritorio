@@ -78,7 +78,12 @@ namespace FormularioICP_sin_petar
             else
                 producto.LongNUmSerie = 0;
 
-            producto.Rellenar(producto);
+            int id = producto.Rellenar(producto);
+
+            if (id > 0) 
+            {
+                MessageBox.Show("La insercion se ha realizado correctamente","Inserción",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             
         }
 

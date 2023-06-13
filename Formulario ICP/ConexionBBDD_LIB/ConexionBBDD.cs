@@ -59,9 +59,13 @@ namespace ConexionBBDD_LIB
                     for (int i = 0; i < parametros.Count; i++)
                     {
                         SqlParameter parametro = new SqlParameter();
-                        parametro.ParameterName = String.Format("@(0)", parametros[i].Nombre);
+                        parametro.ParameterName = String.Format("@{0}",parametros[i].Nombre);
                         parametro.DbType = parametros[i].Tipo;
                         parametro.Value = parametros[i].Valor;
+                        if (parametros[i].Tamanho != null)
+                            parametro.Size = parametros[i].Tamanho;
+                        if (parametros[i].Direccion == TipoDireccion.EntradaSalida)
+                            parametro.Direction = ParameterDirection.InputOutput;
 
                         comando.Parameters.Add(parametro);
                     }
@@ -87,7 +91,7 @@ namespace ConexionBBDD_LIB
 
                 comando.CommandText = SQL;
 
-                if (SQL.Trim().Split('_')[0].ToLower() == "PA".ToLower())
+                if (SQL.Trim().Split('_')[0].ToLower() == "dbo.PA".ToLower())
                     comando.CommandType = CommandType.StoredProcedure;
 
                 if (parametros != null)
@@ -95,9 +99,11 @@ namespace ConexionBBDD_LIB
                     for (int i = 0; i < parametros.Count; i++)
                     {
                         SqlParameter parametro = new SqlParameter();
-                        parametro.ParameterName = String.Format("@{0}", parametros[i].Nombre);
+                        parametro.ParameterName =  parametros[i].Nombre;
                         parametro.DbType = parametros[i].Tipo;
                         parametro.Value = parametros[i].Valor;
+                        if (parametros[i].Tamanho != null)
+                            parametro.Size = parametros[i].Tamanho;
 
                         if (parametros[i].Direccion == TipoDireccion.Entrada)
                         {

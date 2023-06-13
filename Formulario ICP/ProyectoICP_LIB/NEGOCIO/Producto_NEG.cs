@@ -43,11 +43,13 @@ namespace ProyectoICP_LIB.NEGOCIO
             return resultado.FirstOrDefault();
         }
 
-        public void Rellenar(Producto_NEG Producto)
+        public int Rellenar(Producto_NEG Producto)
         {
             Producto_BBDD PBBDD = new Producto_BBDD(Utilidades.CadenaConexion);
 
-            PBBDD.Insertar(Producto);
+            int id = PBBDD.Insertar(Producto);
+
+            return id;
             
         }
     }

@@ -8,7 +8,7 @@ namespace ProyectoICP_LIB
 {
     public class Utilidades
     {
-        public static string CadenaConexion = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;TrustServerCertificate=true;";
+        public static string CadenaConexion = @"Server=localhost\SQLEXPRESS;Database=CURSO_LOGISTICA;Trusted_Connection=True;TrustServerCertificate=true;";
 
     }
 }
