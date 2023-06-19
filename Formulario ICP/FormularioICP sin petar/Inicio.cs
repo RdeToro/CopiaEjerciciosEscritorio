@@ -4,6 +4,7 @@ namespace FormularioICP_sin_petar
 {
     public partial class Inicio : Form
     {
+        Aviso_Recepciones_CAB_NEG _avisoRecepcionCab = new Aviso_Recepciones_CAB_NEG();
         Producto_NEG _misProductos = new Producto_NEG();
         public Inicio()
         {
@@ -23,7 +24,7 @@ namespace FormularioICP_sin_petar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             int IdReferencia = 0;
-            Producto_NEG Buscado = new Producto_NEG();
+            List<Producto_NEG> Buscado = new List<Producto_NEG>();
             if (txtIdReferencia.Text != null)
             {
                 IdReferencia = Convert.ToInt32(txtIdReferencia.Text);
@@ -39,6 +40,12 @@ namespace FormularioICP_sin_petar
         private void btnTodos_Click(object sender, EventArgs e)
         {
             dgvReferencias.DataSource = _misProductos.GetProductos();
+        }
+
+                
+        private void verProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvReferencias.DataSource = _avisoRecepcionCab.GetAvisoRecepcionesCAB();
         }
     }
 }

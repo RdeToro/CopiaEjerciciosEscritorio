@@ -29,11 +29,11 @@ namespace ProyectoICP_LIB.BBDD
                         ",CODIGO_EAN  " +
                         ",ID_GRUPO  " +
                         ",CNT_ESTANDAR" +
-                        ",PESO" +
+                        ",PESO " +
                         ",OPERATIVA" +
                         ",LONGITUD_NSERIE" +
                         "FROM REFERENCIAS" +
-                        "WHERE ID_REFERENCIA = @ReferenciaId";
+                        "WHERE ID_REFERENCIA = @ID_REFERENCIA";
 
 
             bool bResultado = _conexion.Abrir();
@@ -45,12 +45,13 @@ namespace ProyectoICP_LIB.BBDD
                 List<ParametroBBDD> parametros = new List<ParametroBBDD>();
                 ParametroBBDD parametro = new ParametroBBDD
                 {
-                    Nombre = "@ReferenciaId",
+                    Nombre = "ID_REFERENCIA",
                     Tipo = DbType.Int32,
                     Valor = ProductoID                    
                 };
+                parametros.Add(parametro);
 
-                datos = _conexion.LeerDatos(SQL);
+                datos = _conexion.LeerDatos(SQL,parametros);
                 resultado = new List<Producto_NEG>();
 
                 foreach (DataRow row in datos.Rows)
@@ -58,7 +59,7 @@ namespace ProyectoICP_LIB.BBDD
                     Producto_NEG producto = new Producto_NEG
                     {
                         Id = Convert.ToInt32(row["ID_REFERENCIA"]),
-                        FechaCreacion = Convert.ToDateTime(row["F_IN"]),
+                        FechaCreacion = Convert.ToDateTime(row["F_INSERT"]),
                         CodReferencia = row["COD_REFERENCIA"].ToString(),
                         Descripcion = row["DES_REFERENCIA"].ToString(),
                         RefCliente = row["REF_CLIENTE"].ToString(),
@@ -131,7 +132,7 @@ namespace ProyectoICP_LIB.BBDD
                 List<ParametroBBDD> parametros = new List<ParametroBBDD>();
                 ParametroBBDD parametro = new ParametroBBDD               
                 {
-                    Nombre = "@COD_REFERENCIA",
+                    Nombre = "COD_REFERENCIA",
                     Tipo = DbType.String,
                     Valor = producto.CodReferencia,
                     Direccion = TipoDireccion.Entrada
@@ -141,7 +142,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@DES_REFERENCIA",
+                    Nombre = "DES_REFERENCIA",
                     Tipo = DbType.String,
                     Valor = producto.Descripcion,
                     Direccion = TipoDireccion.Entrada
@@ -151,7 +152,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@REF_CLIENTE",
+                    Nombre = "REF_CLIENTE",
                     Tipo = DbType.String,
                     Valor = producto.RefCliente,
                     Direccion = TipoDireccion.Entrada
@@ -161,7 +162,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@CODIGO_EAN",
+                    Nombre = "CODIGO_EAN",
                     Tipo = DbType.String,
                     Valor = producto.CodEan,
                     Direccion = TipoDireccion.Entrada
@@ -171,7 +172,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@ID_GRUPO",
+                    Nombre = "ID_GRUPO",
                     Tipo = DbType.String,
                     Valor = producto.GrupoID,
                     Direccion = TipoDireccion.Entrada
@@ -181,7 +182,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@CNT_ESTANDAR",
+                    Nombre = "CNT_ESTANDAR",
                     Tipo = DbType.Int32,
                     Valor = producto.CantidadSTD,
                     Direccion = TipoDireccion.Entrada
@@ -191,7 +192,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@PESO",
+                    Nombre = "PESO",
                     Tipo = DbType.Int32,
                     Valor = producto.Peso,
                     Direccion = TipoDireccion.Entrada
@@ -201,7 +202,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@OPERATIVA",
+                    Nombre = "OPERATIVA",
                     Tipo = DbType.Boolean,
                     Valor = producto.Operativa,
                     Direccion = TipoDireccion.Entrada
@@ -211,7 +212,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@LONGITUD_NSERIE",
+                    Nombre = "LONGITUD_NSERIE",
                     Tipo = DbType.Int32,
                     Valor = producto.LongNUmSerie,
                     Direccion = TipoDireccion.Entrada
@@ -221,19 +222,21 @@ namespace ProyectoICP_LIB.BBDD
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@RETCODE",
+                    Nombre = "RETCODE",
                     Tipo = DbType.Int32,
-                    Direccion = TipoDireccion.EntradaSalida
+                    Direccion = TipoDireccion.EntradaSalida,
+                    Valor = 0
                 };
 
                 parametros.Add(parametro);
 
                 parametro = new ParametroBBDD
                 {
-                    Nombre = "@MENSAJE",
+                    Nombre = "MENSAJE",
                     Tipo = DbType.String,
                     Direccion = TipoDireccion.EntradaSalida,
-                    Tamanho = 1000
+                    Tamanho = 1000,
+                    Valor = ""
                 };
                 
                 
@@ -243,7 +246,7 @@ namespace ProyectoICP_LIB.BBDD
 
                 if (iResultado > 0)
                 {
-                    SQL = "select @@identity";
+                    SQL = "SELECT @@IDENTITY";
                     DataTable tabla = _conexion.LeerDatos(SQL);
                     if(tabla!= null)
                     {

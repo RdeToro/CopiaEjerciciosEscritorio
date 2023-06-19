@@ -31,6 +31,9 @@
             menuStrip1 = new MenuStrip();
             productosToolStripMenuItem = new ToolStripMenuItem();
             insertarReferenciaToolStripMenuItem = new ToolStripMenuItem();
+            verProductosToolStripMenuItem = new ToolStripMenuItem();
+            avisoDeRecepcionToolStripMenuItem = new ToolStripMenuItem();
+            nuevoToolStripMenuItem = new ToolStripMenuItem();
             dgvReferencias = new DataGridView();
             lblIdReferencia = new Label();
             txtIdReferencia = new TextBox();
@@ -42,7 +45,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { productosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { productosToolStripMenuItem, avisoDeRecepcionToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -51,7 +54,7 @@
             // 
             // productosToolStripMenuItem
             // 
-            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { insertarReferenciaToolStripMenuItem });
+            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { insertarReferenciaToolStripMenuItem, verProductosToolStripMenuItem });
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             productosToolStripMenuItem.Size = new Size(73, 20);
             productosToolStripMenuItem.Text = "Productos";
@@ -59,9 +62,29 @@
             // insertarReferenciaToolStripMenuItem
             // 
             insertarReferenciaToolStripMenuItem.Name = "insertarReferenciaToolStripMenuItem";
-            insertarReferenciaToolStripMenuItem.Size = new Size(168, 22);
+            insertarReferenciaToolStripMenuItem.Size = new Size(180, 22);
             insertarReferenciaToolStripMenuItem.Text = "Insertar referencia";
             insertarReferenciaToolStripMenuItem.Click += insertarReferenciaToolStripMenuItem_Click;
+            // 
+            // verProductosToolStripMenuItem
+            // 
+            verProductosToolStripMenuItem.Name = "verProductosToolStripMenuItem";
+            verProductosToolStripMenuItem.Size = new Size(180, 22);
+            verProductosToolStripMenuItem.Text = "Ver productos";
+            verProductosToolStripMenuItem.Click += verProductosToolStripMenuItem_Click;
+            // 
+            // avisoDeRecepcionToolStripMenuItem
+            // 
+            avisoDeRecepcionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoToolStripMenuItem });
+            avisoDeRecepcionToolStripMenuItem.Name = "avisoDeRecepcionToolStripMenuItem";
+            avisoDeRecepcionToolStripMenuItem.Size = new Size(122, 20);
+            avisoDeRecepcionToolStripMenuItem.Text = "Aviso de Recepcion";
+            // 
+            // nuevoToolStripMenuItem
+            // 
+            nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            nuevoToolStripMenuItem.Size = new Size(109, 22);
+            nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // dgvReferencias
             // 
@@ -139,5 +162,8 @@
         private TextBox txtIdReferencia;
         private Button btnBuscar;
         private Button btnTodos;
+        private ToolStripMenuItem avisoDeRecepcionToolStripMenuItem;
+        private ToolStripMenuItem nuevoToolStripMenuItem;
+        private ToolStripMenuItem verProductosToolStripMenuItem;
     }
 }

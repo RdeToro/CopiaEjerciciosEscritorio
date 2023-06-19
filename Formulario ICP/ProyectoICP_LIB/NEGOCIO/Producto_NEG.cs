@@ -33,14 +33,14 @@ namespace ProyectoICP_LIB.NEGOCIO
             return resultado;
         }
 
-        public Producto_NEG GetProducto(int ProductoId)
+        public List<Producto_NEG> GetProducto(int ProductoId)
         {
             List<Producto_NEG> resultado = null;
 
             Producto_BBDD productoBBDD = new Producto_BBDD(Utilidades.CadenaConexion);
             resultado = productoBBDD.LeerProductos(ProductoId);
 
-            return resultado.FirstOrDefault();
+            return resultado;
         }
 
         public int Rellenar(Producto_NEG Producto)

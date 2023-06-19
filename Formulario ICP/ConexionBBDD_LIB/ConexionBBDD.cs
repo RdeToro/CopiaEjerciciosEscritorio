@@ -51,7 +51,7 @@ namespace ConexionBBDD_LIB
             if (conexion.State == ConnectionState.Open)
             {
                 SqlCommand comando = conexion.CreateCommand();
-
+                                
                 comando.CommandText = SQL;
 
                 if (parametros != null)
@@ -99,7 +99,7 @@ namespace ConexionBBDD_LIB
                     for (int i = 0; i < parametros.Count; i++)
                     {
                         SqlParameter parametro = new SqlParameter();
-                        parametro.ParameterName =  parametros[i].Nombre;
+                        parametro.ParameterName =  String.Format("@{0}",parametros[i].Nombre);
                         parametro.DbType = parametros[i].Tipo;
                         parametro.Value = parametros[i].Valor;
                         if (parametros[i].Tamanho != null)
@@ -117,6 +117,11 @@ namespace ConexionBBDD_LIB
                         else if (parametros[i].Direccion == TipoDireccion.EntradaSalida)
                         {
                             parametro.Direction= ParameterDirection.InputOutput;
+                        }
+                        if (parametros[i].TipoSQL !=  null && parametros[i].TipoSQL == SqlDbType.Structured)
+                        {
+                            parametro.SqlDbType = parametros[i].TipoSQL;
+                            parametro.TypeName = "dbo.TI_INSERTAR_AVISO_LIN2";
                         }
 
 

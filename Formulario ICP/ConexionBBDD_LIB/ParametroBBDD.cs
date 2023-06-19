@@ -19,6 +19,8 @@ namespace ConexionBBDD_LIB
         public TipoDireccion Direccion { get; set; }
         public int Tamanho { get; set; }
 
+        public SqlDbType TipoSQL { get; set; }
+
 
 
 
