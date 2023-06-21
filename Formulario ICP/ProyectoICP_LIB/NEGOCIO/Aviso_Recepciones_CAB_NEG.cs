@@ -54,7 +54,7 @@ namespace ProyectoICP_LIB.NEGOCIO
             Aviso_Recepciones_CAB_NEG recepcion = null;
             Aviso_Recepciones_BBDD aviso = null;
 
-            DataTable datos = null;
+            DataTable datos = new DataTable();
 
             datos = aviso.LeerCAB(Id_Aviso_recepcion);
 
