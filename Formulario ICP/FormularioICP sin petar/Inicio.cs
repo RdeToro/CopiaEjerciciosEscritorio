@@ -42,7 +42,7 @@ namespace FormularioICP_sin_petar
             dgvReferencias.DataSource = _misProductos.GetProductos();
         }
 
-                
+
         private void verProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgvReferencias.DataSource = _avisoRecepcionCab.GetAvisoRecepcionesCAB();

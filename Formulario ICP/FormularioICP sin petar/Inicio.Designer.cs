@@ -62,14 +62,14 @@
             // insertarReferenciaToolStripMenuItem
             // 
             insertarReferenciaToolStripMenuItem.Name = "insertarReferenciaToolStripMenuItem";
-            insertarReferenciaToolStripMenuItem.Size = new Size(180, 22);
+            insertarReferenciaToolStripMenuItem.Size = new Size(168, 22);
             insertarReferenciaToolStripMenuItem.Text = "Insertar referencia";
             insertarReferenciaToolStripMenuItem.Click += insertarReferenciaToolStripMenuItem_Click;
             // 
             // verProductosToolStripMenuItem
             // 
             verProductosToolStripMenuItem.Name = "verProductosToolStripMenuItem";
-            verProductosToolStripMenuItem.Size = new Size(180, 22);
+            verProductosToolStripMenuItem.Size = new Size(168, 22);
             verProductosToolStripMenuItem.Text = "Ver productos";
             verProductosToolStripMenuItem.Click += verProductosToolStripMenuItem_Click;
             // 
@@ -83,7 +83,7 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(109, 22);
+            nuevoToolStripMenuItem.Size = new Size(180, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // dgvReferencias
@@ -113,7 +113,7 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(590, 405);
+            btnBuscar.Location = new Point(616, 406);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(75, 23);
             btnBuscar.TabIndex = 4;
@@ -123,7 +123,7 @@
             // 
             // btnTodos
             // 
-            btnTodos.Location = new Point(684, 405);
+            btnTodos.Location = new Point(713, 406);
             btnTodos.Name = "btnTodos";
             btnTodos.Size = new Size(75, 23);
             btnTodos.TabIndex = 5;

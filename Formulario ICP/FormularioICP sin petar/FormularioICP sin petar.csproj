@@ -13,4 +13,10 @@
     <ProjectReference Include="..\ProyectoICP_LIB\ProyectoICP_LIB.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Inicio.cs">
+      <CustomToolNamespace></CustomToolNamespace>
+    </Compile>
+  </ItemGroup>
+
 </Project>
