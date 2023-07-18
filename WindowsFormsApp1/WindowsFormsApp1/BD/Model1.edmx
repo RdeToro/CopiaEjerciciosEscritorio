@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CURSO_LOGISTICAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AVISO_RECEPCIONES_CAB">
+          <Key>
+            <PropertyRef Name="ID_AVISO_RECEPCION" />
+          </Key>
+          <Property Name="ID_AVISO_RECEPCION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="ESTADO_AVISO" Type="tinyint" Nullable="false" />
+          <Property Name="COD_PEDIDO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_PROVEEDOR" Type="int" />
+          <Property Name="TIPO_AVISO" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="AVISO_RECEPCIONES_LIN">
+          <Key>
+            <PropertyRef Name="ID_AVISO_RECEPCION" />
+            <PropertyRef Name="LINEA" />
+          </Key>
+          <Property Name="ID_AVISO_RECEPCION" Type="int" Nullable="false" />
+          <Property Name="LINEA" Type="int" Nullable="false" />
+          <Property Name="ID_REFERENCIA" Type="int" Nullable="false" />
+          <Property Name="CANTIDAD" Type="int" Nullable="false" />
+          <Property Name="LOTE" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB">
+          <End Role="AVISO_RECEPCIONES_CAB" Type="Self.AVISO_RECEPCIONES_CAB" Multiplicity="1" />
+          <End Role="AVISO_RECEPCIONES_LIN" Type="Self.AVISO_RECEPCIONES_LIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AVISO_RECEPCIONES_CAB">
+              <PropertyRef Name="ID_AVISO_RECEPCION" />
+            </Principal>
+            <Dependent Role="AVISO_RECEPCIONES_LIN">
+              <PropertyRef Name="ID_AVISO_RECEPCION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PA_INSERTAR_AVISO_RECEPCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ESTADO_AVISO" Type="tinyint" Mode="In" />
+          <Parameter Name="COD_PEDIDO" Type="varchar" Mode="In" />
+          <Parameter Name="ID_PROVEEDOR" Type="int" Mode="In" />
+          <Parameter Name="TIPO_AVISO" Type="tinyint" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="CURSO_LOGISTICAModelStoreContainer">
+          <EntitySet Name="AVISO_RECEPCIONES_CAB" EntityType="Self.AVISO_RECEPCIONES_CAB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AVISO_RECEPCIONES_LIN" EntityType="Self.AVISO_RECEPCIONES_LIN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB" Association="Self.FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB">
+            <End Role="AVISO_RECEPCIONES_CAB" EntitySet="AVISO_RECEPCIONES_CAB" />
+            <End Role="AVISO_RECEPCIONES_LIN" EntitySet="AVISO_RECEPCIONES_LIN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CURSO_LOGISTICAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AVISO_RECEPCIONES_CAB">
+          <Key>
+            <PropertyRef Name="ID_AVISO_RECEPCION" />
+          </Key>
+          <Property Name="ID_AVISO_RECEPCION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <Property Name="ESTADO_AVISO" Type="Byte" Nullable="false" />
+          <Property Name="COD_PEDIDO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_PROVEEDOR" Type="Int32" />
+          <Property Name="TIPO_AVISO" Type="Byte" />
+          <NavigationProperty Name="AVISO_RECEPCIONES_LIN" Relationship="Self.FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB" FromRole="AVISO_RECEPCIONES_CAB" ToRole="AVISO_RECEPCIONES_LIN" />
+        </EntityType>
+        <EntityType Name="AVISO_RECEPCIONES_LIN">
+          <Key>
+            <PropertyRef Name="ID_AVISO_RECEPCION" />
+            <PropertyRef Name="LINEA" />
+          </Key>
+          <Property Name="ID_AVISO_RECEPCION" Type="Int32" Nullable="false" />
+          <Property Name="LINEA" Type="Int32" Nullable="false" />
+          <Property Name="ID_REFERENCIA" Type="Int32" Nullable="false" />
+          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+          <Property Name="LOTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AVISO_RECEPCIONES_CAB" Relationship="Self.FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB" FromRole="AVISO_RECEPCIONES_LIN" ToRole="AVISO_RECEPCIONES_CAB" />
+        </EntityType>
+        <Association Name="FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB">
+          <End Role="AVISO_RECEPCIONES_CAB" Type="Self.AVISO_RECEPCIONES_CAB" Multiplicity="1" />
+          <End Role="AVISO_RECEPCIONES_LIN" Type="Self.AVISO_RECEPCIONES_LIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AVISO_RECEPCIONES_CAB">
+              <PropertyRef Name="ID_AVISO_RECEPCION" />
+            </Principal>
+            <Dependent Role="AVISO_RECEPCIONES_LIN">
+              <PropertyRef Name="ID_AVISO_RECEPCION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CURSO_LOGISTICAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AVISO_RECEPCIONES_CAB" EntityType="Self.AVISO_RECEPCIONES_CAB" />
+          <EntitySet Name="AVISO_RECEPCIONES_LIN" EntityType="Self.AVISO_RECEPCIONES_LIN" />
+          <AssociationSet Name="FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB" Association="Self.FK_AVISO_RECEPCIONES_LIN_AVISO_RECEPCIONES_CAB">
+            <End Role="AVISO_RECEPCIONES_CAB" EntitySet="AVISO_RECEPCIONES_CAB" />
+            <End Role="AVISO_RECEPCIONES_LIN" EntitySet="AVISO_RECEPCIONES_LIN" />
+          </AssociationSet>
+          <FunctionImport Name="PA_INSERTAR_AVISO_RECEPCION">
+            <Parameter Name="ESTADO_AVISO" Mode="In" Type="Byte" />
+            <Parameter Name="COD_PEDIDO" Mode="In" Type="String" />
+            <Parameter Name="ID_PROVEEDOR" Mode="In" Type="Int32" />
+            <Parameter Name="TIPO_AVISO" Mode="In" Type="Byte" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CURSO_LOGISTICAModelStoreContainer" CdmEntityContainer="CURSO_LOGISTICAEntities">
+          <EntitySetMapping Name="AVISO_RECEPCIONES_CAB">
+            <EntityTypeMapping TypeName="CURSO_LOGISTICAModel.AVISO_RECEPCIONES_CAB">
+              <MappingFragment StoreEntitySet="AVISO_RECEPCIONES_CAB">
+                <ScalarProperty Name="ID_AVISO_RECEPCION" ColumnName="ID_AVISO_RECEPCION" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+                <ScalarProperty Name="ESTADO_AVISO" ColumnName="ESTADO_AVISO" />
+                <ScalarProperty Name="COD_PEDIDO" ColumnName="COD_PEDIDO" />
+                <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+                <ScalarProperty Name="TIPO_AVISO" ColumnName="TIPO_AVISO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AVISO_RECEPCIONES_LIN">
+            <EntityTypeMapping TypeName="CURSO_LOGISTICAModel.AVISO_RECEPCIONES_LIN">
+              <MappingFragment StoreEntitySet="AVISO_RECEPCIONES_LIN">
+                <ScalarProperty Name="ID_AVISO_RECEPCION" ColumnName="ID_AVISO_RECEPCION" />
+                <ScalarProperty Name="LINEA" ColumnName="LINEA" />
+                <ScalarProperty Name="ID_REFERENCIA" ColumnName="ID_REFERENCIA" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="LOTE" ColumnName="LOTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PA_INSERTAR_AVISO_RECEPCION" FunctionName="CURSO_LOGISTICAModel.Store.PA_INSERTAR_AVISO_RECEPCION" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

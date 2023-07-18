@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CURSO_LOGISTICAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="REFERENCIAS">
+          <Key>
+            <PropertyRef Name="ID_REFERENCIA" />
+          </Key>
+          <Property Name="ID_REFERENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_INSERT" Type="datetime" />
+          <Property Name="COD_REFERENCIA" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DES_REFERENCIA" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="REF_CLIENTE" Type="varchar" MaxLength="20" />
+          <Property Name="CODIGO_EAN" Type="varchar" MaxLength="13" />
+          <Property Name="ID_GRUPO" Type="varchar" MaxLength="10" />
+          <Property Name="CNT_ESTANDAR" Type="int" />
+          <Property Name="PESO" Type="int" Nullable="false" />
+          <Property Name="OPERATIVA" Type="bit" Nullable="false" />
+          <Property Name="LONGITUD_NSERIE" Type="int" Nullable="false" />
+        </EntityType>
+        <Function Name="PA_INSERTAR_REFERENCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="COD_REFERENCIA" Type="varchar" Mode="In" />
+          <Parameter Name="DES_REFERENCIA" Type="varchar" Mode="In" />
+          <Parameter Name="REF_CLIENTE" Type="varchar" Mode="In" />
+          <Parameter Name="CODIGO_EAN" Type="varchar" Mode="In" />
+          <Parameter Name="ID_GRUPO" Type="varchar" Mode="In" />
+          <Parameter Name="CNT_ESTANDAR" Type="int" Mode="In" />
+          <Parameter Name="PESO" Type="int" Mode="In" />
+          <Parameter Name="OPERATIVA" Type="bit" Mode="In" />
+          <Parameter Name="LONGITUD_NSERIE" Type="int" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="CURSO_LOGISTICAModelStoreContainer">
+          <EntitySet Name="REFERENCIAS" EntityType="Self.REFERENCIAS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CURSO_LOGISTICAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="REFERENCIAS">
+          <Key>
+            <PropertyRef Name="ID_REFERENCIA" />
+          </Key>
+          <Property Name="ID_REFERENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_INSERT" Type="DateTime" Precision="3" />
+          <Property Name="COD_REFERENCIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_REFERENCIA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REF_CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_EAN" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="ID_GRUPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CNT_ESTANDAR" Type="Int32" />
+          <Property Name="PESO" Type="Int32" Nullable="false" />
+          <Property Name="OPERATIVA" Type="Boolean" Nullable="false" />
+          <Property Name="LONGITUD_NSERIE" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ReferEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="REFERENCIAS" EntityType="Self.REFERENCIAS" />
+          <FunctionImport Name="PA_INSERTAR_REFERENCIA">
+            <Parameter Name="COD_REFERENCIA" Mode="In" Type="String" />
+            <Parameter Name="DES_REFERENCIA" Mode="In" Type="String" />
+            <Parameter Name="REF_CLIENTE" Mode="In" Type="String" />
+            <Parameter Name="CODIGO_EAN" Mode="In" Type="String" />
+            <Parameter Name="ID_GRUPO" Mode="In" Type="String" />
+            <Parameter Name="CNT_ESTANDAR" Mode="In" Type="Int32" />
+            <Parameter Name="PESO" Mode="In" Type="Int32" />
+            <Parameter Name="OPERATIVA" Mode="In" Type="Boolean" />
+            <Parameter Name="LONGITUD_NSERIE" Mode="In" Type="Int32" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CURSO_LOGISTICAModelStoreContainer" CdmEntityContainer="ReferEntities">
+          <EntitySetMapping Name="REFERENCIAS">
+            <EntityTypeMapping TypeName="CURSO_LOGISTICAModel.REFERENCIAS">
+              <MappingFragment StoreEntitySet="REFERENCIAS">
+                <ScalarProperty Name="ID_REFERENCIA" ColumnName="ID_REFERENCIA" />
+                <ScalarProperty Name="F_INSERT" ColumnName="F_INSERT" />
+                <ScalarProperty Name="COD_REFERENCIA" ColumnName="COD_REFERENCIA" />
+                <ScalarProperty Name="DES_REFERENCIA" ColumnName="DES_REFERENCIA" />
+                <ScalarProperty Name="REF_CLIENTE" ColumnName="REF_CLIENTE" />
+                <ScalarProperty Name="CODIGO_EAN" ColumnName="CODIGO_EAN" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+                <ScalarProperty Name="CNT_ESTANDAR" ColumnName="CNT_ESTANDAR" />
+                <ScalarProperty Name="PESO" ColumnName="PESO" />
+                <ScalarProperty Name="OPERATIVA" ColumnName="OPERATIVA" />
+                <ScalarProperty Name="LONGITUD_NSERIE" ColumnName="LONGITUD_NSERIE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PA_INSERTAR_REFERENCIA" FunctionName="CURSO_LOGISTICAModel.Store.PA_INSERTAR_REFERENCIA" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
